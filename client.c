@@ -6,13 +6,13 @@
 /*   By: felipe <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 12:35:00 by felipe            #+#    #+#             */
-/*   Updated: 2024/01/09 13:31:58 by felipe           ###   ########.fr       */
+/*   Updated: 2024/01/10 16:40:25 by fmontes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void char_to_bit(int pid, char c)
+void	char_to_bit(int pid, char c)
 {
 	int	i;
 
@@ -23,22 +23,30 @@ void char_to_bit(int pid, char c)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(500);
+		usleep(200);
 		i--;
 	}
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	int	pid;
 	int	i;
 
-	i = 0;
-	pid = atoi(av[1]);
-
-	while (av[1][i])
+	if (kill(ft_atoi(av[1]), 0) == -1)
+		ft_printf("\033[1;31mERROR: Wrong pid. Please try again.\033[0m\n");
+	if (ac == 3)
 	{
-		char_to_bit(pid, av[1][i]);
-		i++;
+		i = 0;
+		pid = ft_atoi(av[1]);
+		while (av[2][i])
+		{
+			char_to_bit(pid, av[2][i]);
+			i++;
+		}
+		char_to_bit(pid, '\n');
+		return (0);
 	}
+	ft_printf("\033[1;31mERROR: Too much args. Please try again.\033[0m\n");
+	return (0);
 }
