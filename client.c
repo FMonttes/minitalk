@@ -6,7 +6,7 @@
 /*   By: felipe <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 12:35:00 by felipe            #+#    #+#             */
-/*   Updated: 2024/01/10 16:40:25 by fmontes          ###   ########.fr       */
+/*   Updated: 2024/01/11 11:48:28 by fmontes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	char_to_bit(int pid, char c)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(200);
+		usleep(300);
 		i--;
 	}
 }
@@ -34,7 +34,7 @@ int	main(int ac, char **av)
 	int	i;
 
 	if (kill(ft_atoi(av[1]), 0) == -1)
-		ft_printf("\033[1;31mERROR: Wrong pid. Please try again.\033[0m\n");
+		ft_prin("\033[1;31mERROR: Wrong pid. Please try again.\033[0m\n");
 	if (ac == 3)
 	{
 		i = 0;
@@ -47,6 +47,6 @@ int	main(int ac, char **av)
 		char_to_bit(pid, '\n');
 		return (0);
 	}
-	ft_printf("\033[1;31mERROR: Too much args. Please try again.\033[0m\n");
+	ft_prin("\033[1;31mERROR: Too much args. Please try again.\033[0m\n");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: felipe <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:23:10 by felipe            #+#    #+#             */
-/*   Updated: 2024/01/10 13:23:44 by fmontes          ###   ########.fr       */
+/*   Updated: 2024/01/11 11:38:55 by fmontes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 int	check_args(const char *format, int i, va_list ap);
 int	ft_atoi(const char *nptr);
-int	ft_printf(const char *format, ...);
+int	ft_prin(const char *format, ...);
 int	ft_putchar(char c);
 int	ft_putnbr(int num);
 int	ft_putstr(char *str);
